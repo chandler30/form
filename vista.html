@@ -1,0 +1,38 @@
+<!-- vista.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Vista Protegida</title>
+  <script src="https://www.gstatic.com/firebasejs/9.1.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.1.0/firebase-auth.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <script>
+    // Configura Firebase (igual que en index.html)
+    const firebaseConfig = {
+        apiKey: "AIzaSyCSAc9q3AEfHwBbCyKkYVbBubdHm1izdUM",
+      authDomain: "domokit.firebaseapp.com",
+      projectId: "domokit",
+      storageBucket: "domokit.appspot.com",
+      messagingSenderId: "52646221717",
+      appId: "1:52646221717:web:11ae45cf0e9d562478889c",
+      measurementId: "G-GKDRX85NLG"
+    };
+    // Inicializa Firebase
+    firebase.initializeApp(firebaseConfig);
+
+    // Verificar si el usuario está autenticado
+    firebase.auth().onAuthStateChanged((user) => {
+      if (!user) {
+        // Si no está autenticado, redirigir a la página de inicio de sesión
+        window.location.href = 'index.html';
+      }
+    });
+  </script>
+</head>
+<body class="bg-gray-100 flex items-center justify-center min-h-screen">
+  <div class="w-full max-w-lg bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+    <h1 class="text-3xl font-bold mb-6 text-center">Bienvenido a la Vista Protegida</h1>
+  </div>
+</body>
+</html>
